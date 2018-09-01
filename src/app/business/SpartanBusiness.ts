@@ -14,16 +14,16 @@ class SpartanBusiness  implements ISpartanBusiness {
     }
    
     retrieve (callback: (error: any, result: any) => void) {
-         this._spartanRepository.retrieve(callback);
+         this._spartanRepository.retrieve(callback);    
     }
-    
+     
     update (_id: string, item: ISpartanModel, callback: (error: any, result: any) => void) {
-        this._spartanRepository.findById(_id, (err, res) => {
-            if(err) callback(err, res);
-            else 
-                this._spartanRepository.update(res._id, item, callback);
+        // this._spartanRepository.findById(_id, (err, res) => {
+        //     if(err) callback(err, res);
+        //     else 
+        //         this._spartanRepository.update(res._id, item, callback);
                 
-        });    
+        // });    
     }
     
     delete (_id: string, callback:(error: any, result: any) => void) {

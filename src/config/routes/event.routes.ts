@@ -12,8 +12,8 @@ var router = express.Router();
     get routes () : express.Router {
         
         var controller = this.eventController;
-        router.get("/events", controller.retrieve);
-        router.post("/events", controller.create);
+        router.get("/event", controller.retrieve);
+        router.post("/event", controller.create);
         router.put("/event/:_id", controller.update);
         router.get("/event/:_id", controller.findById);
         router.delete("/event/:_id", controller.delete);

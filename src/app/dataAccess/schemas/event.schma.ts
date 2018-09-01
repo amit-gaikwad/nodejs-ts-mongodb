@@ -1,31 +1,31 @@
 import DataAccess = require("./../../dataAccess/DataAccess");
-import IStudent = require("../../model/interfaces/istudent");
+import IEvent= require("../../model/interfaces/ievent");
 
 var mongoose = DataAccess.mongooseInstance;
 var mongooseConnection = DataAccess.mongooseConnection;
 
-class StudentSchema {
+class EventSchema {
     
     static get schema() {
         var schema = new mongoose.Schema({
-            rollno: {
+            id:{
                type: Number,
                required: true
            },
-           name: {
+           title: {
                type: String,
                required: true
            },
-           age: {
-               type: Number,
+           date: {
+               type:Date,
                required: true
            },
-           gender: {
+           description: {
             type: String,
             required: true
         } ,
 
-        classteacher_id: {
+        imgurl: {
             type: String,
             required: true
         },        	
@@ -35,5 +35,5 @@ class StudentSchema {
         return schema;
     }
 }
-var schema = mongooseConnection.model<IStudent>("Student", StudentSchema.schema);
+var schema = mongooseConnection.model<IEvent>("Event", EventSchema.schema);
 export = schema;
