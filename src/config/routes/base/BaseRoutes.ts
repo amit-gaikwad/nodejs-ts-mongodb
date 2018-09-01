@@ -11,8 +11,7 @@ class BaseRoutes {
         app.use("/", new HeroRoutes().routes);
         app.use("/", new SpartanRoutes().routes);
         app.use("/", new StudentRoutes().routes); 
-        app.use("/", new GallaryRoutes().
-    ); 
+        app.use("/", new GallaryRoutes().routes ); 
         return app;
     }
 }

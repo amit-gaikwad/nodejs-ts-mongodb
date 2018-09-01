@@ -54,37 +54,7 @@ class GallaryController implements IBaseController <GallaryService> {
                 
             }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     retrieve(req: express.Request, res: express.Response): void {
         try {
