@@ -1,7 +1,7 @@
     /// <reference path="../../../typings/tsd.d.ts" />
 
     import Mongoose = require("mongoose");
-    import Constants = require("./../../config/constants/Constants");
+    import Constants = require("./../../config/constants/constants");
     
     class DataAccess {
         static mongooseInstance: any;
@@ -10,7 +10,7 @@
         constructor () {
             DataAccess.connect();
         }
-        
+    
         static connect (): Mongoose.Connection {
             if(this.mongooseInstance) return this.mongooseInstance;
             
