@@ -8,10 +8,6 @@ class EventSchema {
     
     static get schema() {
         var schema = new mongoose.Schema({
-            id:{
-               type: Number,
-               required: true
-           },
            title: {
                type: String,
                required: true

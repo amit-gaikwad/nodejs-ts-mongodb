@@ -10,7 +10,7 @@ class EventController implements IBaseController <EventService> {
     create(req: express.Request, res: express.Response): void {
             try {
                                    
-                var spartan: IEvent = <IEvent>req.body;
+                var spartan: IEvent = <IEvent>req.body;     
                 var spartanBusiness = new EventService();
                 spartanBusiness.create(spartan, (error, result) => {
                     if(error) res.send({"error": "error"});

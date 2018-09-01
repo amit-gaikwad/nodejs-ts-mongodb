@@ -1,4 +1,4 @@
-import EventSchema = require("./../dataAccess/schemas/student.schema");
+import EventSchema = require("./../dataAccess/schemas/event.schma");
 import RepositoryBase = require("./base/RepositoryBase");
 import IEvent = require("../model/interfaces/ievent");
 
