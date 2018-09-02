@@ -2,7 +2,7 @@ import express = require("express");
 import HeroRoutes = require("./../HeroRoutes");
 import SpartanRoutes = require("./../SpartanRoutes");
 import StudentRoutes = require("./../student.routes");
-// { StudentRoutes } from "../student.routes";
+import GallaryRoutes = require("./../gallary.routes");
 var app = express();
 
 class BaseRoutes {
@@ -11,6 +11,7 @@ class BaseRoutes {
         app.use("/", new HeroRoutes().routes);
         app.use("/", new SpartanRoutes().routes);
         app.use("/", new StudentRoutes().routes); 
+        app.use("/", new GallaryRoutes().routes ); 
         return app;
     }
 }
