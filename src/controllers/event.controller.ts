@@ -1,34 +1,34 @@
 import express = require("express");
-import HeroBusiness = require("./../app/business/HeroBusiness");
 import IBaseController = require("./interfaces/base/BaseController");
-import IHeroModel = require("./../app/model/interfaces/HeroModel");
+import EventService = require("../app/business/event.service");
+import IEvent = require("../app/model/interfaces/IEvent");
 
 
 
-class HeroController implements IBaseController <HeroBusiness> {
+class EventController implements IBaseController <EventService> {
     
     create(req: express.Request, res: express.Response): void {
             try {
                                    
-                var hero: IHeroModel = <IHeroModel>req.body;
-                var heroBusiness = new HeroBusiness();
-                heroBusiness.create(hero, (error, result) => {
-                    if(error) res.send({"error": "error"});
+                var event: IEvent = <IEvent>req.body;     
+                var eventService = new EventService();
+                
+                eventService.create(event, (error, result) => {
+                    if(error) res.send({"error": error});
                     else res.send({"success": "success"});
                 });
             }
             catch (e)  {
                 console.log(e);
                 res.send({"error": "error in your request"});
-
             }
     }
     update(req: express.Request, res: express.Response): void {
-        try {
-             var hero: IHeroModel = <IHeroModel>req.body;
+/*         try {
+             var spartan: IStudent = <IStudent>req.body;
              var _id: string = req.params._id;
-             var heroBusiness = new HeroBusiness();
-                heroBusiness.update(_id, hero, (error, result) => {
+             var spartanBusiness = new StudentService();
+                spartanBusiness.update(_id, spartan, (error, result) => {
                     if(error) res.send({"error": "error"});
                     else res.send({"success": "success"});
                 });   
@@ -36,15 +36,15 @@ class HeroController implements IBaseController <HeroBusiness> {
             catch (e)  {
                 console.log(e);
                 res.send({"error": "error in your request"});
-
+                
             }
-    }
+ */    }
     delete(req: express.Request, res: express.Response): void {
         try {
                 
              var _id: string = req.params._id;
-             var heroBusiness = new HeroBusiness();
-                heroBusiness.delete(_id, (error, result) => {
+             var eventService = new EventService();
+                eventService.delete(_id, (error, result) => {
                     if(error) res.send({"error": "error"});
                     else res.send({"success": "success"});
                 });   
@@ -52,14 +52,14 @@ class HeroController implements IBaseController <HeroBusiness> {
             catch (e)  {
                 console.log(e);
                 res.send({"error": "error in your request"});
-
+                
             }
     }
     retrieve(req: express.Request, res: express.Response): void {
         try {
-                
-             var heroBusiness = new HeroBusiness();
-                heroBusiness.retrieve((error, result) => {
+              
+             var eventService = new EventService();
+                eventService.retrieve((error, result) => {
                     if(error) res.send({"error": "error"});
                     else res.send(result);
                 });   
@@ -67,15 +67,16 @@ class HeroController implements IBaseController <HeroBusiness> {
             catch (e)  {
                 console.log(e);
                 res.send({"error": "error in your request"});
-
+                
             }
     }
     findById(req: express.Request, res: express.Response): void {
         try {
              
              var _id: string = req.params._id;
-             var heroBusiness = new HeroBusiness();
-                heroBusiness.findById(_id, (error, result) => {
+
+             var eventService = new EventService();
+                eventService.findById(_id, (error, result) => {
                     if(error) res.send({"error": "error"});
                     else res.send(result);
                 });   
@@ -89,4 +90,4 @@ class HeroController implements IBaseController <HeroBusiness> {
     
         
 }
-export = HeroController;    
+export = EventController;

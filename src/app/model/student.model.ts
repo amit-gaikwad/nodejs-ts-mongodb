@@ -1,4 +1,4 @@
-import IStudent = require("./interfaces/istudent");
+import IStudent = require("./interfaces/IStudent");
 
  class StudentModel {
    
