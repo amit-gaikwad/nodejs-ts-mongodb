@@ -10,5 +10,4 @@ import IGallary = require("./interfaces/igallary");
     
 }
 Object.seal(GallaryModel);
-
 export= GallaryModel;

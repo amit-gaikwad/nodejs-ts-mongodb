@@ -2,9 +2,9 @@
 import mongoose = require("mongoose");
 
 interface IGallary extends mongoose.Document {
-        img_url:string,
-        category:string,
-        isPrivate:boolean,
+        img_url:string;
+        category:string;
+        isPrivate:boolean;
     
     
 }
