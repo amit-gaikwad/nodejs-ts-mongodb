@@ -1,17 +1,15 @@
-
-//import ISpartanBusiness = require("./interfaces/SpartanBusiness");
 import StudentRepository = require("../repository/student.repository");
-import IStudent = require("../model/interfaces/istudent");
+import IStudent = require("../model/interfaces/student.interface");
 
-class StudentService  { //implements ISpartanBusiness {
+class StudentService  {
     private _studentRepository: StudentRepository;
     
     constructor () {
         this._studentRepository = new StudentRepository();
     }  
         
-    create (item: IStudent, callback: (error: any, result: any) => void) {
-        this._studentRepository.create(item, callback);   
+    create (student : IStudent, callback: (error: any, result: any) => void) {
+        this._studentRepository.create(student, callback);   
     }
    
     retrieve (callback: (error: any, result: any) => void) {
