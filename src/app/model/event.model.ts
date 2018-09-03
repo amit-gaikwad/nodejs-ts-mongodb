@@ -1,4 +1,4 @@
-import IEvent = require("./interfaces/ievent");
+import IEvent = require("./interfaces/IEvent");
 
  class EventModel {
    

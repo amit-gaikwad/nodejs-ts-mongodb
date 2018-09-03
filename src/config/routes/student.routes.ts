@@ -1,22 +1,22 @@
 import express = require("express");
-import EventController = require("../../controllers/event.controller");
+import StudentController = require("../../controllers/student.controller");
 
 var router = express.Router();
- class EventRoutes {
-    private eventController: EventController;
+ class StudentRoutes {
+    private studentController: StudentController;
     
     constructor () {
-        this.eventController = new EventController();   
+        this.studentController = new StudentController();   
     }
 
     get routes () : express.Router {
         
-        var controller = this.eventController;
-        router.get("/events", controller.retrieve);
-        router.post("/events", controller.create);
-        router.put("/event/:_id", controller.update);
-        router.get("/event/:_id", controller.findById);
-        router.delete("/event/:_id", controller.delete);
+        var controller = this.studentController;
+        router.get("/students", controller.retrieve);
+        router.post("/students", controller.create);
+        router.put("/student/:_id", controller.update);
+        router.get("/student/:_id", controller.findById);
+        router.delete("/student/:_id", controller.delete);
        
         return router;
     }
@@ -24,5 +24,5 @@ var router = express.Router();
     
 }
 
-Object.seal(EventRoutes);
-export = EventRoutes;
+Object.seal(StudentRoutes);
+export = StudentRoutes;

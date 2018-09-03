@@ -1,7 +1,7 @@
 import express = require("express");
 import IBaseController = require("./interfaces/base/BaseController");
 import StudentService = require("../app/business/student.service");
-import IStudent = require("../app/model/interfaces/istudent");
+import IStudent = require("../app/model/interfaces/IStudent");
 
 
 

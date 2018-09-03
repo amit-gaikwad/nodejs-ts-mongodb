@@ -1,7 +1,7 @@
 import express = require("express");
 import IBaseController = require("./interfaces/base/BaseController");
 import EventService = require("../app/business/event.service");
-import IEvent = require("../app/model/interfaces/ievent");
+import IEvent = require("../app/model/interfaces/IEvent");
 
 
 
@@ -10,10 +10,11 @@ class EventController implements IBaseController <EventService> {
     create(req: express.Request, res: express.Response): void {
             try {
                                    
-                var spartan: IEvent = <IEvent>req.body;     
-                var spartanBusiness = new EventService();
-                spartanBusiness.create(spartan, (error, result) => {
-                    if(error) res.send({"error": "error"});
+                var event: IEvent = <IEvent>req.body;     
+                var eventService = new EventService();
+                
+                eventService.create(event, (error, result) => {
+                    if(error) res.send({"error": error});
                     else res.send({"success": "success"});
                 });
             }
@@ -42,8 +43,8 @@ class EventController implements IBaseController <EventService> {
         try {
                 
              var _id: string = req.params._id;
-             var spartanBusiness = new EventService();
-                spartanBusiness.delete(_id, (error, result) => {
+             var eventService = new EventService();
+                eventService.delete(_id, (error, result) => {
                     if(error) res.send({"error": "error"});
                     else res.send({"success": "success"});
                 });   
@@ -57,8 +58,8 @@ class EventController implements IBaseController <EventService> {
     retrieve(req: express.Request, res: express.Response): void {
         try {
               
-             var spartanBusiness = new EventService();
-                spartanBusiness.retrieve((error, result) => {
+             var eventService = new EventService();
+                eventService.retrieve((error, result) => {
                     if(error) res.send({"error": "error"});
                     else res.send(result);
                 });   
@@ -74,8 +75,8 @@ class EventController implements IBaseController <EventService> {
              
              var _id: string = req.params._id;
 
-             var spartanBusiness = new EventService();
-                spartanBusiness.findById(_id, (error, result) => {
+             var eventService = new EventService();
+                eventService.findById(_id, (error, result) => {
                     if(error) res.send({"error": "error"});
                     else res.send(result);
                 });   
@@ -89,4 +90,4 @@ class EventController implements IBaseController <EventService> {
     
         
 }
-export =EventController;
+export = EventController;
