@@ -10,9 +10,9 @@ class StudentController implements IBaseController <StudentService> {
     create(req: express.Request, res: express.Response): void {
             try {
                                    
-                var spartan: IStudent = <IStudent>req.body;
-                var spartanBusiness = new StudentService();
-                spartanBusiness.create(spartan, (error, result) => {
+                var student: IStudent = <IStudent>req.body;
+                var studentService = new StudentService();
+                studentService.create(student, (error, result) => {
                     if(error) res.send({"error": "error"});
                     else res.send({"success": "success"});
                 });
@@ -24,10 +24,10 @@ class StudentController implements IBaseController <StudentService> {
     }
     update(req: express.Request, res: express.Response): void {
 /*         try {
-             var spartan: IStudent = <IStudent>req.body;
+             var student: IStudent = <IStudent>req.body;
              var _id: string = req.params._id;
-             var spartanBusiness = new StudentService();
-                spartanBusiness.update(_id, spartan, (error, result) => {
+             var studentService = new StudentService();
+                studentService.update(_id, student, (error, result) => {
                     if(error) res.send({"error": "error"});
                     else res.send({"success": "success"});
                 });   
@@ -42,8 +42,8 @@ class StudentController implements IBaseController <StudentService> {
         try {
                 
              var _id: string = req.params._id;
-             var spartanBusiness = new StudentService();
-                spartanBusiness.delete(_id, (error, result) => {
+             var studentService = new StudentService();
+                studentService.delete(_id, (error, result) => {
                     if(error) res.send({"error": "error"});
                     else res.send({"success": "success"});
                 });   
@@ -57,8 +57,8 @@ class StudentController implements IBaseController <StudentService> {
     retrieve(req: express.Request, res: express.Response): void {
         try {
               
-             var spartanBusiness = new StudentService();
-                spartanBusiness.retrieve((error, result) => {
+             var studentService = new StudentService();
+                studentService.retrieve((error, result) => {
                     if(error) res.send({"error": "error"});
                     else res.send(result);
                 });   
@@ -74,8 +74,8 @@ class StudentController implements IBaseController <StudentService> {
              
              var _id: string = req.params._id;
 
-             var spartanBusiness = new StudentService();
-                spartanBusiness.findById(_id, (error, result) => {
+             var studentService = new StudentService();
+                studentService.findById(_id, (error, result) => {
                     if(error) res.send({"error": "error"});
                     else res.send(result);
                 });   
