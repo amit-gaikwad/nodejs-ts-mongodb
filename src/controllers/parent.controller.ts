@@ -1,18 +1,18 @@
 import express = require("express");
 import IBaseController = require("./interfaces/base/BaseController");
-import NoticeService = require("../app/business/notice.service");
-import INotice = require("../app/model/interfaces/inotice.interface");
+import ParentService = require("../app/business/parent.service");
+import IParent = require("../app/model/interfaces/parent.interface");
 
 
 
-class NoticeController implements IBaseController <NoticeService> {
+class ParentController implements IBaseController <ParentService> {
     
     create(req: express.Request, res: express.Response): void {
             try {
                                    
-                var notice: INotice = <INotice>req.body;
-                var noticeService = new NoticeService();
-                noticeService.create(notice, (error, result) => {
+                var parent: IParent = <IParent>req.body;
+                var parentService = new ParentService();
+                parentService.create(parent, (error, result) => {
                     if(error) res.send({"error": error});
                     else res.send({"success": "success"});
                 });
@@ -42,8 +42,8 @@ class NoticeController implements IBaseController <NoticeService> {
         try {
                 
              var _id: string = req.params._id;
-             var noticeService = new NoticeService();
-                    noticeService.delete(_id, (error, result) => {
+             var parentService = new ParentService();
+                parentService.delete(_id, (error, result) => {
                     if(error) res.send({"error": "error"});
                     else res.send({"success": "success"});
                 });   
@@ -57,9 +57,9 @@ class NoticeController implements IBaseController <NoticeService> {
     retrieve(req: express.Request, res: express.Response): void {
         try {
               
-             var noticeService = new NoticeService();
-                noticeService.retrieve((error, result) => {
-                    if(error) res.send({"error": "error"});
+             var parentService = new ParentService();
+                parentService.retrieve((error, result) => {
+                    if(error) res.send({"error": error});
                     else res.send(result);
                 });   
             }
@@ -74,9 +74,9 @@ class NoticeController implements IBaseController <NoticeService> {
              
              var _id: string = req.params._id;
 
-             var noticeService = new NoticeService();
-                noticeService.findById(_id, (error, result) => {
-                    if(error) res.send({"error": "error"});
+             var parentService = new ParentService();
+                parentService.findById(_id, (error, result) => {
+                    if(error) res.send({"error": error});
                     else res.send(result);
                 });   
             }
@@ -89,4 +89,4 @@ class NoticeController implements IBaseController <NoticeService> {
     
         
 }
-export =NoticeController;
+export =ParentController;

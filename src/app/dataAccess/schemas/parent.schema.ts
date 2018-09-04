@@ -1,27 +1,39 @@
 import DataAccess = require("./../../dataAccess/DataAccess");
-import INotice = require("../../model/interfaces/inotice.interface");
+import IParent = require("../../model/interfaces/parent.interface");
 
 var mongoose = DataAccess.mongooseInstance;
 var mongooseConnection = DataAccess.mongooseConnection;
 
-class NoticeSchema {
+class ParentSchema {
     
     static get schema() {
         var schema = new mongoose.Schema({
-            title: {
+            name: {
                type: String,
                required: true
            },
-           description: {
+           address: {
                type: String,
                required: true
            },
-           date: {
-               type: Date,
+           mobileno: {
+               type: Number,
                required: true
            },
-           class: {
+           email: {
             type: String,
+            required: true
+        } ,
+        student_ids: {
+            type: String,
+            required: true
+        } ,
+        password: {
+            type: String,
+            required: true
+        } ,
+        OTP: {
+            type:Number,
             required: true
         } ,
 
@@ -32,5 +44,5 @@ class NoticeSchema {
         return schema;
     }
 }
-var schema = mongooseConnection.model<INotice>("Notice", NoticeSchema.schema);
+var schema = mongooseConnection.model<IParent>("Parent", ParentSchema.schema);
 export = schema;

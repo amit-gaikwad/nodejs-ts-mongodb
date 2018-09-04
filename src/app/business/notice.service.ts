@@ -1,7 +1,7 @@
 
 
 import NoticeRepository = require("../repository/notice.repository");
-import INotice = require("../model/interfaces/inotice");
+import INotice = require("../model/interfaces/inotice.interface");
 
 class NoticeService  {
     private _noticeRepository: NoticeRepository;
