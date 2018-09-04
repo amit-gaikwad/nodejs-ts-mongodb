@@ -32,5 +32,5 @@ class NoticeSchema {
         return schema;
     }
 }
-var schema = mongooseConnection.model<INotice>("Student", NoticeSchema.schema);
+var schema = mongooseConnection.model<INotice>("Notice", NoticeSchema.schema);
 export = schema;

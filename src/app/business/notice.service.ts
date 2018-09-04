@@ -1,9 +1,9 @@
 
-//import ISpartanBusiness = require("./interfaces/SpartanBusiness");
+
 import NoticeRepository = require("../repository/notice.repository");
 import INotice = require("../model/interfaces/inotice");
 
-class NoticeService  { //implements ISpartanBusiness {
+class NoticeService  {
     private _noticeRepository: NoticeRepository;
     
     constructor () {
