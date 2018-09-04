@@ -3,6 +3,7 @@ import HeroRoutes = require("./../HeroRoutes");
 import SpartanRoutes = require("./../SpartanRoutes");
 import StudentRoutes = require("./../student.routes");
 import GallaryRoutes = require("./../gallary.routes");
+import EventRoutes = require("./../event.routes");
 var app = express();
 
 class BaseRoutes {
@@ -12,6 +13,7 @@ class BaseRoutes {
         app.use("/", new SpartanRoutes().routes);
         app.use("/", new StudentRoutes().routes); 
         app.use("/", new GallaryRoutes().routes ); 
+        app.use("/", new EventRoutes().routes);
         return app;
     }
 }
