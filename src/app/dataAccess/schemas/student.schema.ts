@@ -23,6 +23,11 @@ class StudentSchema {
            gender: {
             type: String,
             required: true
+                 } ,
+
+        photourl: {
+            type: String,
+            required: true
         } ,
 
         classteacher_id: {
