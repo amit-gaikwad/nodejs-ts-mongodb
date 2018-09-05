@@ -3,6 +3,7 @@ import NoticeRoutes = require("./../notice.routes")
 import StudentRoutes = require("./../student.routes");
 import EventRoutes = require("./../event.routes");
 import ParentRoutes = require("./../parent.routes");
+import AdminRoutes = require("./../admin.routes");
 var app = express();
 
 class BaseRoutes {
@@ -13,6 +14,7 @@ class BaseRoutes {
         app.use("/", new EventRoutes().routes);
         app.use("/", new  NoticeRoutes().routes);
         app.use("/", new ParentRoutes().routes);
+        app.use("/", new AdminRoutes().routes);
         return app;
     }
 }

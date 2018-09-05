@@ -1,4 +1,4 @@
-import INotice = require("./interfaces/inotice");
+import INotice = require("./interfaces/inotice.interface");
 
  class NoticeModel {
    
