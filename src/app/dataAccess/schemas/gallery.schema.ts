@@ -1,10 +1,10 @@
 import DataAccess = require("./../../dataAccess/DataAccess");
-import IGallary = require("../../model/interfaces/igallary");
+import IGallery = require("../../model/interfaces/gallery.interface");
 
 var mongoose = DataAccess.mongooseInstance;
 var mongooseConnection = DataAccess.mongooseConnection;
 
-class GallarySchema {
+class GallerySchema {
     
     static get schema() {
         var schema = new mongoose.Schema({
@@ -25,5 +25,5 @@ class GallarySchema {
         return schema;
     }
 }
-var schema = mongooseConnection.model<IGallary>("Gallary", GallarySchema.schema);
+var schema = mongooseConnection.model<IGallery>("Gallery", GallerySchema.schema);
 export = schema;

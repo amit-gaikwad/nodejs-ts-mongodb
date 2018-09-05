@@ -1,17 +1,17 @@
 import express = require("express");
 import IBaseController = require("./interfaces/base/BaseController");
-import GallaryService = require("../app/business/gallary.service");
-import IGallary = require("../app/model/interfaces/igallary");
+import GalleryService = require("../app/business/gallery.service");
+import IGallary = require("../app/model/interfaces/gallery.interface");
 
 
 
-class GallaryController implements IBaseController <GallaryService> {
+class GallaryController implements IBaseController <GalleryService> {
     
     create(req: express.Request, res: express.Response): void {
             try {
                                    
                 var spartan: IGallary = <IGallary>req.body;
-                var spartanBusiness = new GallaryService();
+                var spartanBusiness = new GalleryService();
                 spartanBusiness.create(spartan, (error, result) => {
                     if(error) res.send({"error": "error"});
                     else res.send({"success": "success"});
@@ -42,7 +42,7 @@ class GallaryController implements IBaseController <GallaryService> {
         try {
                 
              var _id: string = req.params._id;
-             var spartanBusiness = new GallaryService();
+             var spartanBusiness = new GalleryService();
                 spartanBusiness.delete(_id, (error, result) => {
                     if(error) res.send({"error": "error"});
                     else res.send({"success": "success"});
@@ -59,7 +59,7 @@ class GallaryController implements IBaseController <GallaryService> {
     retrieve(req: express.Request, res: express.Response): void {
         try {
               
-             var spartanBusiness = new GallaryService();
+             var spartanBusiness = new GalleryService();
                 spartanBusiness.retrieve((error, result) => {
                     if(error) res.send({"error": "error"});
                     else res.send(result);
@@ -76,7 +76,7 @@ class GallaryController implements IBaseController <GallaryService> {
              
              var _id: string = req.params._id;
 
-             var spartanBusiness = new GallaryService();
+             var spartanBusiness = new GalleryService();
                 spartanBusiness.findById(_id, (error, result) => {
                     if(error) res.send({"error": "error"});
                     else res.send(result);
