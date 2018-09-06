@@ -1,5 +1,5 @@
-import EventRepository = require("../repository/event.repository");
-import IEvent = require("../model/interfaces/event.interface");
+import EventRepository = require("./../repository/event.repository");
+import IEvent = require("./../model/interfaces/event.interface");
 
 class EventService  { 
 

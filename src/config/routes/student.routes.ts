@@ -12,7 +12,7 @@ var router = express.Router();
     get routes () : express.Router {
         
         var controller = this.studentController;
-        router.get("/students", controller.retrieve);
+        router.get("/student", controller.retrieve);
         router.post("/student", controller.create);
         router.put("/student/:_id", controller.update);
         router.get("/student/:_id", controller.findById);
@@ -20,8 +20,6 @@ var router = express.Router();
        
         return router;
     }
-     
-    
 }
 
 Object.seal(StudentRoutes);

@@ -1,5 +1,5 @@
 import DataAccess = require("./../../dataAccess/DataAccess");
-import IEvent= require("../../model/interfaces/event.interface");
+import IEvent= require("./../../model/interfaces/event.interface");
 
 var mongoose = DataAccess.mongooseInstance;
 var mongooseConnection = DataAccess.mongooseConnection;

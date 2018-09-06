@@ -29,5 +29,8 @@
     "method-override": "^2.3.5",
     "mongojs": "^2.2.2",
     "mongoose": "^4.3.4"
+  },
+  "dependencies": {
+    "cors": "^2.8.4"
   }
 }

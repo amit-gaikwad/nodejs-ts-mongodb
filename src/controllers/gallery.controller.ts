@@ -1,18 +1,18 @@
 import express = require("express");
 import IBaseController = require("./interfaces/base/BaseController");
-import StudentService = require("../app/business/student.service");
-import IStudent = require("../app/model/interfaces/student.interface");
+import GalleryService = require("../app/business/gallery.service");
+import IGallary = require("../app/model/interfaces/gallery.interface");
 
 
 
-class StudentController implements IBaseController <StudentService> {
+class GallaryController implements IBaseController <GalleryService> {
     
     create(req: express.Request, res: express.Response): void {
             try {
                                    
-                var student: IStudent = <IStudent>req.body;
-                var studentService = new StudentService();
-                studentService.create(student, (error, result) => {
+                var spartan: IGallary = <IGallary>req.body;
+                var spartanBusiness = new GalleryService();
+                spartanBusiness.create(spartan, (error, result) => {
                     if(error) res.send({"error": "error"});
                     else res.send({"success": "success"});
                 });
@@ -24,10 +24,10 @@ class StudentController implements IBaseController <StudentService> {
     }
     update(req: express.Request, res: express.Response): void {
 /*         try {
-             var student: IStudent = <IStudent>req.body;
+             var spartan: IStudent = <IStudent>req.body;
              var _id: string = req.params._id;
-             var studentService = new StudentService();
-                studentService.update(_id, student, (error, result) => {
+             var spartanBusiness = new StudentService();
+                spartanBusiness.update(_id, spartan, (error, result) => {
                     if(error) res.send({"error": "error"});
                     else res.send({"success": "success"});
                 });   
@@ -42,8 +42,8 @@ class StudentController implements IBaseController <StudentService> {
         try {
                 
              var _id: string = req.params._id;
-             var studentService = new StudentService();
-                studentService.delete(_id, (error, result) => {
+             var spartanBusiness = new GalleryService();
+                spartanBusiness.delete(_id, (error, result) => {
                     if(error) res.send({"error": "error"});
                     else res.send({"success": "success"});
                 });   
@@ -54,11 +54,13 @@ class StudentController implements IBaseController <StudentService> {
                 
             }
     }
+
+    
     retrieve(req: express.Request, res: express.Response): void {
         try {
               
-             var studentService = new StudentService();
-                studentService.retrieve((error, result) => {
+             var spartanBusiness = new GalleryService();
+                spartanBusiness.retrieve((error, result) => {
                     if(error) res.send({"error": "error"});
                     else res.send(result);
                 });   
@@ -74,8 +76,8 @@ class StudentController implements IBaseController <StudentService> {
              
              var _id: string = req.params._id;
 
-             var studentService = new StudentService();
-                studentService.findById(_id, (error, result) => {
+             var spartanBusiness = new GalleryService();
+                spartanBusiness.findById(_id, (error, result) => {
                     if(error) res.send({"error": "error"});
                     else res.send(result);
                 });   
@@ -89,4 +91,4 @@ class StudentController implements IBaseController <StudentService> {
     
         
 }
-export =StudentController;
+export =GallaryController;

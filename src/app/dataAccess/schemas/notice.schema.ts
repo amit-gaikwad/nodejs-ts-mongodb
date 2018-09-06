@@ -1,44 +1,36 @@
 import DataAccess = require("./../../dataAccess/DataAccess");
-import IStudent = require("../../model/interfaces/student.interface");
+import INotice = require("../../model/interfaces/notice.interface");
 
 var mongoose = DataAccess.mongooseInstance;
 var mongooseConnection = DataAccess.mongooseConnection;
 
-class StudentSchema {
+class NoticeSchema {
     
     static get schema() {
         var schema = new mongoose.Schema({
-            rollno: {
-               type: Number,
-               required: true
-           },
-           name: {
+            title: {
                type: String,
                required: true
            },
-           age: {
-               type: Number,
+           description: {
+               type: String,
                required: true
            },
-           gender: {
-            type: String,
-            required: true
-                 } ,
-
-        photourl: {
+           date: {
+               type: Date,
+               required: true
+           },
+           class: {
             type: String,
             required: true
         } ,
 
-        classteacher_id: {
-            type: String,
-            required: true
-        },        	
+            	
 
         });
         
         return schema;
     }
 }
-var schema = mongooseConnection.model<IStudent>("Student", StudentSchema.schema);
+var schema = mongooseConnection.model<INotice>("Notice", NoticeSchema.schema);
 export = schema;
