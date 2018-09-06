@@ -1,19 +1,19 @@
 import express = require("express");
 import IBaseController = require("./interfaces/base/BaseController");
-import StudentService = require("../app/business/student.service");
-import IStudent = require("../app/model/interfaces/student.interface");
+import ParentService = require("../app/business/parent.service");
+import IParent = require("../app/model/interfaces/parent.interface");
 
 
 
-class StudentController implements IBaseController <StudentService> {
+class ParentController implements IBaseController <ParentService> {
     
     create(req: express.Request, res: express.Response): void {
             try {
                                    
-                var student: IStudent = <IStudent>req.body;
-                var studentService = new StudentService();
-                studentService.create(student, (error, result) => {
-                    if(error) res.send({"error": "error"});
+                var parent: IParent = <IParent>req.body;
+                var parentService = new ParentService();
+                parentService.create(parent, (error, result) => {
+                    if(error) res.send({"error": error});
                     else res.send({"success": "success"});
                 });
             }
@@ -24,10 +24,10 @@ class StudentController implements IBaseController <StudentService> {
     }
     update(req: express.Request, res: express.Response): void {
 /*         try {
-             var student: IStudent = <IStudent>req.body;
+             var spartan: IStudent = <IStudent>req.body;
              var _id: string = req.params._id;
-             var studentService = new StudentService();
-                studentService.update(_id, student, (error, result) => {
+             var spartanBusiness = new StudentService();
+                spartanBusiness.update(_id, spartan, (error, result) => {
                     if(error) res.send({"error": "error"});
                     else res.send({"success": "success"});
                 });   
@@ -42,8 +42,8 @@ class StudentController implements IBaseController <StudentService> {
         try {
                 
              var _id: string = req.params._id;
-             var studentService = new StudentService();
-                studentService.delete(_id, (error, result) => {
+             var parentService = new ParentService();
+                parentService.delete(_id, (error, result) => {
                     if(error) res.send({"error": "error"});
                     else res.send({"success": "success"});
                 });   
@@ -57,9 +57,9 @@ class StudentController implements IBaseController <StudentService> {
     retrieve(req: express.Request, res: express.Response): void {
         try {
               
-             var studentService = new StudentService();
-                studentService.retrieve((error, result) => {
-                    if(error) res.send({"error": "error"});
+             var parentService = new ParentService();
+                parentService.retrieve((error, result) => {
+                    if(error) res.send({"error": error});
                     else res.send(result);
                 });   
             }
@@ -74,9 +74,9 @@ class StudentController implements IBaseController <StudentService> {
              
              var _id: string = req.params._id;
 
-             var studentService = new StudentService();
-                studentService.findById(_id, (error, result) => {
-                    if(error) res.send({"error": "error"});
+             var parentService = new ParentService();
+                parentService.findById(_id, (error, result) => {
+                    if(error) res.send({"error": error});
                     else res.send(result);
                 });   
             }
@@ -89,4 +89,4 @@ class StudentController implements IBaseController <StudentService> {
     
         
 }
-export =StudentController;
+export =ParentController;

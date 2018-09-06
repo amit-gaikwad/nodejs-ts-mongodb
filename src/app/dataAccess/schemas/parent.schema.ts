@@ -1,44 +1,44 @@
 import DataAccess = require("./../../dataAccess/DataAccess");
-import IStudent = require("../../model/interfaces/student.interface");
+import IParent = require("../../model/interfaces/parent.interface");
 
 var mongoose = DataAccess.mongooseInstance;
 var mongooseConnection = DataAccess.mongooseConnection;
 
-class StudentSchema {
+class ParentSchema {
     
     static get schema() {
         var schema = new mongoose.Schema({
-            rollno: {
-               type: Number,
-               required: true
-           },
-           name: {
+            name: {
                type: String,
                required: true
            },
-           age: {
+           address: {
+               type: String,
+               required: true
+           },
+           mobileno: {
                type: Number,
                required: true
            },
-           gender: {
-            type: String,
-            required: true
-                 } ,
-
-        photourl: {
+           email: {
             type: String,
             required: true
         } ,
-
-        classteacher_id: {
+        student_ids: {
+            type: String,
+            required: false
+        } ,
+        password: {
             type: String,
             required: true
-        },        	
-
-        });
-        
+        } ,
+        OTP: {
+            type:Number,
+            required: false
+        } ,
+            });
         return schema;
     }
 }
-var schema = mongooseConnection.model<IStudent>("Student", StudentSchema.schema);
+var schema = mongooseConnection.model<IParent>("Parent", ParentSchema.schema);
 export = schema;

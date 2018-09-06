@@ -6,6 +6,7 @@ interface IStudent extends mongoose.Document {
         name:string;
         age:number;
         gender:string;
+        photourl : string;
         classteacher_id:string;	
     
 }

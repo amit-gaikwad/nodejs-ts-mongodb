@@ -1,17 +1,22 @@
 import express = require("express");
-import HeroRoutes = require("./../HeroRoutes");
-import SpartanRoutes = require("./../SpartanRoutes");
+import NoticeRoutes = require("./../notice.routes")
 import StudentRoutes = require("./../student.routes");
+import GalleryRoutes = require("./../gallery.routes");
 import EventRoutes = require("./../event.routes");
+import ParentRoutes = require("./../parent.routes");
+import AdminRoutes = require("./../admin.routes");
 var app = express();
 
 class BaseRoutes {
 
     get routes() {
-        app.use("/", new HeroRoutes().routes);
-        app.use("/", new SpartanRoutes().routes);
+        
         app.use("/", new StudentRoutes().routes); 
+        app.use("/", new GalleryRoutes().routes ); 
         app.use("/", new EventRoutes().routes);
+        app.use("/", new  NoticeRoutes().routes);
+        app.use("/", new ParentRoutes().routes);
+        app.use("/", new AdminRoutes().routes);
         return app;
     }
 }

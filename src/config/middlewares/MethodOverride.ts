@@ -11,7 +11,5 @@ class MethodOverride {
         return app;
     }
 }
-
-
 Object.seal(MethodOverride);
 export = MethodOverride;
