@@ -1,35 +1,36 @@
 import DataAccess = require("./../../dataAccess/DataAccess");
-import IEvent= require("../../model/interfaces/event.interface");
+import INotice = require("../../model/interfaces/inotice.interface");
 
 var mongoose = DataAccess.mongooseInstance;
 var mongooseConnection = DataAccess.mongooseConnection;
 
-class EventSchema {
+class NoticeSchema {
     
     static get schema() {
         var schema = new mongoose.Schema({
-           title: {
+            title: {
+               type: String,
+               required: true
+           },
+           description: {
                type: String,
                required: true
            },
            date: {
-               type:Date,
+               type: Date,
                required: true
            },
-           description: {
+           class: {
             type: String,
             required: true
         } ,
 
-        imgurl: {
-            type: String,
-            required: true
-        },        	
+            	
 
         });
         
         return schema;
     }
 }
-var schema = mongooseConnection.model<IEvent>("Event", EventSchema.schema);
+var schema = mongooseConnection.model<INotice>("Notice", NoticeSchema.schema);
 export = schema;
