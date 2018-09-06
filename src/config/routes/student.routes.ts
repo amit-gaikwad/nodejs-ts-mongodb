@@ -20,8 +20,6 @@ var router = express.Router();
        
         return router;
     }
-     
-    
 }
 
 Object.seal(StudentRoutes);

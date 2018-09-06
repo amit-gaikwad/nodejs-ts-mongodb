@@ -26,7 +26,7 @@ class AdminSchema {
         } ,
         OTP: {
             type: Number,
-            required: true
+            required: false
         } 
         });
         

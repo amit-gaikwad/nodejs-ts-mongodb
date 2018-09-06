@@ -26,7 +26,7 @@ class ParentSchema {
         } ,
         student_ids: {
             type: String,
-            required: true
+            required: false
         } ,
         password: {
             type: String,
@@ -34,13 +34,9 @@ class ParentSchema {
         } ,
         OTP: {
             type:Number,
-            required: true
+            required: false
         } ,
-
-            	
-
-        });
-        
+            });
         return schema;
     }
 }

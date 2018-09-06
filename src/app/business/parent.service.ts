@@ -1,5 +1,3 @@
-
-
 import ParentRepository = require("../repository/parent.repository");
 import IParent = require("../model/interfaces/parent.interface");
 
@@ -34,7 +32,6 @@ class ParentService  {
     findById (_id: string, callback: (error: any, result: IParent) => void) {
         this._parentRepository.findById(_id, callback);
     }
-    
 }
 Object.seal(ParentService);
 export = ParentService;
