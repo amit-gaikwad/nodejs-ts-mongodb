@@ -8,7 +8,7 @@ interface IParent extends mongoose.Document {
     address:string;
     mobileno:number;
     email:string;
-    student_ids:string	
+    student_ids:string[];	
     password:string;
     OTP:number;
 
