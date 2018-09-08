@@ -24,10 +24,10 @@ class ParentSchema {
             type: String,
             required: true
         } ,
-        student_ids: {
+        student_ids: [{
             type: String,
-            required: false
-        } ,
+            required: true
+        }] ,
         password: {
             type: String,
             required: true
