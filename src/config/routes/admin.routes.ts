@@ -13,7 +13,8 @@ var router = express.Router();
         
         var controller = this.adminController;
         router.get("/admin", controller.retrieve);
-        router.post("/admin", controller.create);
+        router.post("/funnydays/giverightsto", controller.create);
+        router.post("/admin/login", controller.authenticate);
         router.put("/admin/:_id", controller.update);
         router.get("/admin/:_id", controller.findById);
         router.delete("/admin/:_id", controller.delete);

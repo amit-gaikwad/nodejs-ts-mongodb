@@ -20,6 +20,23 @@ class AdminController implements IBaseController <AdminService> {
                 res.send({"error": "error in your request"});
             }
     }
+    authenticate(req: express.Request, res: express.Response): void {
+        try {
+                               
+            var admin = req.body;
+            var adminService = new AdminService();
+            adminService.authenticate(admin.email,admin.password, (error, result) => {
+                if(error) res.send(error);
+                else res.send(result);
+            });
+        }
+        catch (e)  {
+            console.log(e);
+            res.send({"error": "error in your request"});
+        }
+}
+    
+
     update(req: express.Request, res: express.Response): void {
 /*         try {
              var spartan: IStudent = <IStudent>req.body;

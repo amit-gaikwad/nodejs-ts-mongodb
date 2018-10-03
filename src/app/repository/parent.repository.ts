@@ -6,6 +6,10 @@ class ParentRepository  extends RepositoryBase<IParent> {
     constructor () {
         super(ParentSchema);
     }    
+
+    authenticate(email : string, password : string, callback: (error: any, result: any) => void) {
+        ParentSchema.findOne({email:email , password : password},callback);
+   }
 }
 
 Object.seal(ParentRepository);

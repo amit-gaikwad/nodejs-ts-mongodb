@@ -11,6 +11,35 @@ class ParentService  {
     create (item: IParent, callback: (error: any, result: any) => void) {
         this._parentRepository.create(item, callback);   
     }
+    authenticate(email : string, password : string, callback: (error: any, result: any) => void) {
+        this._parentRepository.authenticate(email, password,(err, res) => {
+            if(err || this.isEmpty(res)){
+                err = {
+                    "error" : "Invalid User",
+                    "isAdmin" : "false",
+                    "isLoggedIn" : "false"
+                };
+                callback(err, res);
+            }
+            else
+            {
+                res = { 
+                    "parentDetails" : {
+                                "name"  : res.name,
+                                "email"  : res.email,
+                                "mobile"  : res.mobileno,
+                                "address" : res.address,
+                                "student_ids" : res.student_ids
+                                },
+                    "isAdmin" : "false",
+                    "isLoggedIn" : "true"
+                };
+                callback(err, res);
+            }
+        } );
+
+
+   }
    
     retrieve (callback: (error: any, result: any) => void) {
          this._parentRepository.retrieve(callback);
@@ -31,6 +60,14 @@ class ParentService  {
     
     findById (_id: string, callback: (error: any, result: IParent) => void) {
         this._parentRepository.findById(_id, callback);
+    }
+
+    isEmpty(obj) {
+        for(var key in obj) {
+            if(obj.hasOwnProperty(key))
+                return false;
+        }
+        return true;
     }
 }
 Object.seal(ParentService);
