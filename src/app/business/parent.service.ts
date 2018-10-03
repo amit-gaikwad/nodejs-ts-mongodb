@@ -37,8 +37,6 @@ class ParentService  {
                 callback(err, res);
             }
         } );
-
-
    }
    
     retrieve (callback: (error: any, result: any) => void) {

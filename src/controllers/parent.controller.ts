@@ -26,9 +26,9 @@ class ParentController implements IBaseController <ParentService> {
     authenticate(req: express.Request, res: express.Response): void {
         try {
                                
-            var admin = req.body;
-            var adminService = new ParentService();
-            adminService.authenticate(admin.email,admin.password, (error, result) => {
+            var parent = req.body;
+            var parentService = new ParentService();
+            parentService.authenticate(parent.email,parent.password, (error, result) => {
                 if(error) res.send(error);
                 else res.send(result);
             });

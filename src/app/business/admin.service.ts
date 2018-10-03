@@ -32,8 +32,6 @@ class AdminService  {
                 callback(err, res);
             }
         } );
-
-
    }
         
     create (item: IAdmin, callback: (error: any, result: any) => void) {
