@@ -7,6 +7,32 @@ class AdminService  {
     constructor () {
         this._adminRepository = new AdminRepository();
     }  
+
+    authenticate(email : string, password : string, callback: (error: any, result: any) => void) {
+        this._adminRepository.authenticate(email, password,(err, res) => {
+            if(err || this.isEmpty(res)){
+                err = {
+                    "error" : "Invalid User",
+                    "isAdmin" : "false",
+                    "isLoggedIn" : "false"
+                };
+                callback(err, res);
+            }
+            else
+            {
+                res = {
+                    "adminDetails" : {
+                                "name"  : res.name,
+                                "email"  : res.email,
+                                "mobile"  : res.contactNo
+                                },
+                    "isAdmin" : "true",
+                    "isLoggedIn" : "true"
+                };
+                callback(err, res);
+            }
+        } );
+   }
         
     create (item: IAdmin, callback: (error: any, result: any) => void) {
         this._adminRepository.create(item, callback);   
@@ -33,6 +59,14 @@ class AdminService  {
         this._adminRepository.findById(_id, callback);
     }
     
+
+    isEmpty(obj) {
+        for(var key in obj) {
+            if(obj.hasOwnProperty(key))
+                return false;
+        }
+        return true;
+    }
 }
 Object.seal(AdminService);
 export = AdminService;

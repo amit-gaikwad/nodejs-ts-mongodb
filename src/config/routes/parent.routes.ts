@@ -14,6 +14,7 @@ var router = express.Router();
         var controller = this.parentController;
         router.get("/parent", controller.retrieve);
         router.post("/parent", controller.create);
+        router.post("/parent/login", controller.authenticate)
         router.put("/parent/:_id", controller.update);
         router.get("/parent/:_id", controller.findById);
         router.delete("/parent/:_id", controller.delete);
