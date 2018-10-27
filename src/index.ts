@@ -8,7 +8,7 @@
     app.set("port", port);
     app.use(Middlewares.configuration);
     
-    app.listen(port, () => {
+    app.listen(port, '172.31.27.163', () => {
         console.log("Node app is running at localhost:" + port);
        
     });
