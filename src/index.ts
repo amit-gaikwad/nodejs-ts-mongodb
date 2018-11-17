@@ -4,7 +4,7 @@
     import Middlewares = require("./config/middlewares/base/MiddlewaresBase");
     
     var app = express();
-    var port = parseInt(process.env.PORT, 10) || 8000;
+    var port = parseInt(process.env.PORT, 10) || 5000;
     app.set("port", port);
     app.use(Middlewares.configuration);
     
