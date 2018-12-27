@@ -2,6 +2,7 @@ import express = require("express");
 import IBaseController = require("./interfaces/base/BaseController");
 import StudentService = require("../app/business/student.service");
 import ParentService = require("../app/business/parent.service");
+import SkillService = require("../app/business/skills.service");
 import IStudent = require("../app/model/interfaces/student.interface");
 import IParent = require("../app/model/interfaces/parent.interface");
 
@@ -22,6 +23,22 @@ class StudentController implements IBaseController <StudentService> {
                         res.send({"error": "Error while inserting student "+error});
                     } 
                     else {
+                        var skills = {
+                            "communication":0,
+                            "creativity":0, 
+                            "groupactivity":0, 
+                            "phyicalactivity":0, 
+                            "educational":0, 
+                            "student_id":resultStudent._id,   
+                            "assesmentdate": new Date()
+                        }
+                        var skillService = new SkillService();
+                        skillService.create(skills, (error, result) => {
+                            if(error){
+
+                                res.send({"error": "Error while inserting parent "+error});
+                            }
+                        });
                         var password = "funnydays@"+parent.mobileno;
                         parent.student_ids.push(resultStudent._id);
                         parent.password = password;
